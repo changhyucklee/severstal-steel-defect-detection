@@ -264,7 +264,7 @@ app.layout = dbc.Container([
             dbc.Card([
                 dbc.CardBody([
                     dbc.CardLink("Git Hub", target="_blank",
-                                 href="https://github.com/colorxyz/"
+                                 href="https://github.com/changhyucklee/severstal-steel-defect-detection/"
                     )
                 ])
             ]),
