@@ -32,11 +32,15 @@ Definition, Analysis, and Conclusion section
 
       A) Semantic Segmentation
          - Every pixel belongs to a particular class(either background or person). Also, all the pixels belonging to a particular class are represented by the same color (background as black and person as pink). This is an example of semantic segmentation.
-            ![alt tag](https://github.com/colorxyz/AirBnb_Analysis/blob/main/Output%20Graphs/Distribution_of_Prices_of_Airbnbs1.png)
+            
+![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/SemanticSegmentation.png)
+    
       B) Instance Segmentation
          - Here also assigned a particular class to each pixel of the image. However, different objects of the same class have different colors (Person 1 as red, Person 2 as green, background as black, etc.). This is an example of instance segmentation
 
-For Steel defect detection we will use Semantic Segmentation.
+![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/InstanceSegmentation.png)
+
+      For Steel defect detection we will use Semantic Segmentation.
 
    4.2. Encoded Pixels
 
@@ -47,7 +51,7 @@ For Steel defect detection we will use Semantic Segmentation.
         The metric checks that the pairs are sorted, positive, and the decoded pixel values are not duplicated. 
         The pixels are numbered from top to bottom, then left to right: 1 is pixel (1,1), 2 is pixel (2,1), etc.
 
-5. Performance Metrics
+7. Performance Metrics
 
    - The Dice coefficient can be used to compare the pixel-wise agreement between a predicted segmentation and its corresponding ground truth.
 
