@@ -74,11 +74,11 @@ Definition, Analysis, and Conclusion section
    
    2> UNET.ipynb : preprocssing and machine learning model generation and submission file(reanmed to submission.csv to test.csv)
    
-   3> Ananlysis_Defect.py : Web application to analyze defect distribution and predition result.
+   3> Ananlysis_Defect.py : Web application to analyze defect distribution and predict result.
       - Run the following command in the app's directory to run your web app. python Ananlysis_Defect.py 
       - Got to http://127.0.0.1:8005
-      - Random date has assing to train.csv and test.csv to navigate by dates and dropdowbox to mimic more real data analysis.
-      - If you select the date and it show different distribution of defect and select random image in selected period.
+      - Random date has assigned to train.csv and test.csv to navigate by dates and dropdowbox to mimic more real data analysis.
+      - If you select the date, then it shows different distribution of defect and select random image in selected period.
       - If you select the defect class (1~4), it shows random 3 target image and mask images.
 
 ![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/SteelDefectDectionScreen2.png)   
