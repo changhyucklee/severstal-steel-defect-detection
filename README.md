@@ -65,7 +65,7 @@ Definition, Analysis, and Conclusion section
 6. Objective
   
    - Each image may have no defects, a defect of a single class, or defects of multiple classes. For each image one must segment defects of each class (ClassId = [1,2,3,4]).
-   - With this web application, we can analysis defect distribution  and compare targe image and predicted defect mask with train / test images.
+   - With this web application, we can analysis defect distribution  and compare target image and predicted defect mask with train / test images.
 
 ![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/SteelDefectDectionScreen.png)
 
