@@ -69,8 +69,11 @@ Definition, Analysis, and Conclusion section
 ![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/SteelDefectDectionScreen.png)
 
 7. Instructions
+
    1> EDA_&_Data_Preprocessing.ipynb : Exploratory Data Analysis
+   
    2> UNET.ipynb : preprocssing and machine learning model generation and submission file(reanmed to submission.csv to test.csv)
+   
    3> Ananlysis_Defect.py : Web application to analyze defect distribution and predition result.
       - Run the following command in the app's directory to run your web app. python Ananlysis_Defect.py 
       - Got to http://127.0.0.1:8005
