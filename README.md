@@ -16,7 +16,7 @@ Definition, Analysis, and Conclusion section
    - train_images/ — folder with 12568 .jpg training images.
    - test_images/ — folder with 5516 .jpg test images (we are segmenting and classifying these images).
    - train.csv — training annotations which provide segments for defects with total 4 defect classes (ClassId=[1,2,3,4]).
-   - sample_submission.csv — a sample submission file in the correct format (for each ImageId 4 rows, one for each of the 4 defect classes).
+   - test.csv — a submission file in the correct format (for each ImageId 4 rows, one for each of the 4 defect classes).
    - Each image is of 256x1600 resolution
    
 4. Mapping real world problem with Deep Learning problem
@@ -59,8 +59,64 @@ Definition, Analysis, and Conclusion section
 
    where A is the predicted set of pixels and B is the ground truth. The Dice coefficient is defined to be 1 when both A and B are empty.
 
+![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/PerformnaceMetrics.png)
 
 6. Objective
   
    - Each image may have no defects, a defect of a single class, or defects of multiple classes. For each image one must segment defects of each class (ClassId = [1,2,3,4]).
-   - 
+   - With this web application, we can analysis defect distribution  and compare targe image and predicted defect mask with train / test images.
+
+![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/SteelDefectDectionScreen.png)
+
+7. Instructions
+   1> EDA_&_Data_Preprocessing.ipynb : Exploratory Data Analysis
+   2> UNET.ipynb : preprocssing and machine learning model generation and submission file(reanmed to submission.csv to test.csv)
+   3> Ananlysis_Defect.py : Web application to analyze defect distribution and predition result.
+      - Run the following command in the app's directory to run your web app. python Ananlysis_Defect.py 
+      - Got to http://127.0.0.1:8005
+      - Random date has assing to train.csv and test.csv to navigate by dates and dropdowbox to mimic more real data analysis.
+      - If you select the date and it show different distribution of defect and select random image in selected period.
+      - If you select the defect class (1~4), it shows random 3 target image and mask images.
+
+![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/SteelDefectDectionScreen2.png)   
+
+8. Exploratory Data Analysis
+
+![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/DefectDistribution.png)
+
+  - The data is very imbalanced.
+  - Data augmentation and resampling techniques will be required to perform the defect detection.
+
+![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/NoOfLabelsPerImage.png)
+
+  - There are 5902 images with no labels, 6239 images with 1 label, 425 images with 2 labels and 2 images with 3 labels.
+  - Almost half of images doesn’t contain any defects.
+  - Most of images with defects contain the defects of only one type.
+  - In rare cases an image contains the defects of two different types.
+
+Plot of few images for each defect
+
+![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/ImageForEachDefect.png)
+
+Mask Area
+
+![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/MaskArea.png)
+
+  - Mask area for each defect will help to decide area thresholds during segment prediction (later at the time of modelling).
+  - Masks with large areas seem very suspicious to me, so I will try to plot few images with large mask areas picked by random index.
+
+![alt tag](https://github.com/changhyucklee/severstal-steel-defect-detection/blob/main/asset/Defect_3_image.png)
+
+   Large masks seem to be okay except for the fact that these masks seem to contain a lot of empty space without any defects.
+   
+8. Future Work
+   - I have use submission file(test.csv) to checked the prediction result.
+     But I think that I can modify this program to select small amount of test image to predict and check the result image.
+   - I can add function to upload new submission file which is from other kaggler's files and check the result.
+
+10. References
+  - https://segmentation-models.readthedocs.io/en/latest/api.html#unet
+  - https://www.kaggle.com/paulorzp/rle-functions-run-lenght-encode-decode
+  - https://dipanshurana.medium.com/steel-defect-detection-image-segmentation-using-keras-and-tensorflow-6118bc586ad2
+  - https://www.kaggle.com/cdeotte/keras-unet-with-eda
+  - https://www.kaggle.com/hengck23/efficientb0-unet-plus-v4-1/script
